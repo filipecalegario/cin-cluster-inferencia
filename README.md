@@ -2,6 +2,8 @@
 
 Especificação **colaborativa** (humanos + agentes de IA) de uma infraestrutura de **inferência** para o Centro de Informática da UFPE. Este repositório é um **caso de uso** da plataforma [**idea-waddle**](https://github.com/filipecalegario/idea-waddle): as ideias vivem como uma **caixa morfológica** versionada em Git; um agente consolida as contribuições e um **site vivo** se atualiza a cada PR.
 
+**🧩 Caixa morfológica viva:** https://filipecalegario.github.io/cin-cluster-inferencia/ — explore as opções, restrições e estimativas. Material para divulgar a chamada: [`ANNOUNCE.md`](ANNOUNCE.md).
+
 > Você dá *fork* aqui e manda *pull request* com ideias (opções, restrições, critérios). O motor que gera o site mora na plataforma idea-waddle — você não precisa mexer nele.
 
 ## O problema

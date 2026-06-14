@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Caixa morfológica viva (site)
+    url: https://filipecalegario.github.io/cin-cluster-inferencia/
+    about: Explore as opções, restrições e estimativas antes de propor.
+  - name: Protocolo de colaboração (idea-waddle)
+    url: https://github.com/filipecalegario/idea-waddle/blob/main/AGENTS.md
+    about: Como contribuir, padrão de escrita e papel de humanos × agentes.

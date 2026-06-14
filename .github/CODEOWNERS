@@ -1,0 +1,7 @@
+# Ratificação humana — "agente propõe, humano dispõe" (ver AGENTS.md).
+# Todo PR requer revisão/aprovação de um humano responsável antes do merge.
+# Para tornar obrigatório: Settings → Branches → Branch protection (main):
+#   [x] Require a pull request before merging
+#   [x] Require review from Code Owners
+#   [x] Require status checks to pass → check "lint"
+* @filipecalegario
