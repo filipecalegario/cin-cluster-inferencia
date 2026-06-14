@@ -1,0 +1,12 @@
+# Site gerado pelo motor (publicado pela CI; não versionar)
+/site/
+
+# Plataforma clonada ao lado para rodar localmente
+/idea-waddle/
+/_engine/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/

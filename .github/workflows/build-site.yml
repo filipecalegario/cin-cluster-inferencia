@@ -1,0 +1,82 @@
+name: Build living site
+
+# Consome o motor da plataforma idea-waddle (sem copiá-lo): valida o padrão a
+# cada PR e publica o site vivo no GitHub Pages a cada push na main.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  IW_CASE: ${{ github.workspace }}
+  IW_CASE_ID: cin-cluster-inferencia
+  IW_SITE: ${{ github.workspace }}/site
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do caso
+        uses: actions/checkout@v4
+      - name: Checkout da plataforma (idea-waddle)
+        uses: actions/checkout@v4
+        with:
+          repository: filipecalegario/idea-waddle
+          ref: main
+          path: _engine
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar dependências
+        run: pip install -r _engine/engine/requirements.txt
+      - name: Validar padrão de contribuição (lint)
+        run: python _engine/engine/lint.py
+
+  build:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do caso
+        uses: actions/checkout@v4
+      - name: Checkout da plataforma (idea-waddle)
+        uses: actions/checkout@v4
+        with:
+          repository: filipecalegario/idea-waddle
+          ref: main
+          path: _engine
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar dependências
+        run: pip install -r _engine/engine/requirements.txt
+      - name: Rodar motor (CCA) e gerar site
+        run: python _engine/engine/cca.py
+      - name: Upload artefato do Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    if: github.event_name == 'push'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
