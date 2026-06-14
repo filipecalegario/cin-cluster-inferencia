@@ -1,0 +1,35 @@
+# Métricas (estimativas derivadas) deste caso — o "modelo de custo" do cluster.
+# O motor (idea-waddle) é genérico: ele soma os campos 'estimates' das opções
+# selecionadas + as constantes de assumptions.yaml e avalia cada 'expr'.
+# Nomes em 'expr' = campos estimates somados, constantes (assumptions) ou
+# métricas anteriores. 'requires' lista campos sem os quais a métrica fica indefinida.
+metrics:
+  - id: gpus
+    label: "Total de GPUs"
+    expr: "n_gpus"
+    format: int
+    requires: [n_gpus]
+    missing: "selecione a escala"
+
+  - id: capex
+    label: "Custo de capital"
+    expr: "n_gpus * capex_per_gpu_brl + capex_fixed_brl"
+    format: brl
+    requires: [n_gpus, capex_per_gpu_brl]
+    missing: "selecione hardware + escala"
+
+  - id: power_kw
+    label: "Potência"
+    expr: "n_gpus * tdp_w_per_gpu / 1000 * pue"
+    format: number1
+    unit: "kW"
+    requires: [n_gpus, tdp_w_per_gpu]
+    missing: "selecione hardware + escala"
+
+  - id: energy
+    label: "Energia"
+    expr: "power_kw * hours_per_month * tariff_brl_per_kwh"
+    format: brl
+    suffix: "/mês"
+    requires: [n_gpus, tdp_w_per_gpu]
+    missing: "depende da potência"
