@@ -50,6 +50,8 @@ jobs:
     steps:
       - name: Checkout do caso
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # histórico completo p/ o mapa de evolução
       - name: Checkout da plataforma (idea-waddle)
         uses: actions/checkout@v4
         with:
