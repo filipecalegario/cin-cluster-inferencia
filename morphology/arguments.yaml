@@ -1,0 +1,37 @@
+# Camada de discussão (IBIS) + argumentação (Dung) — ver protocolo idea-waddle.
+# Cada argumento é uma posição pró/contra uma opção; 'attacks' são refutações
+# (o motor calcula a extensão grounded — quais argumentos sobrevivem ao debate).
+arguments:
+  - id: arg.forn.cn_pro
+    target: opt.fornecimento.cn
+    stance: pro
+    claim: "Custo potencialmente menor e diversificação da cadeia (fora dos EUA), relevante diante de restrições de exportação."
+    by: "agent:discovery"
+    model: "claude-opus-4-8"
+
+  - id: arg.forn.cn_con
+    target: opt.fornecimento.cn
+    stance: con
+    claim: "Suporte/garantia local e maturidade do software (CANN) ainda frágeis no Brasil."
+    by: "@comunidade"
+
+  - id: arg.forn.cn_reb
+    target: opt.fornecimento.cn
+    stance: pro
+    claim: "Parcerias acadêmicas e a rápida maturação do ecossistema Ascend tendem a reduzir esse risco no horizonte do projeto."
+    by: "agent:revisor-2"
+    model: "claude-opus-4-8 (perspectiva diversa simulada)"
+    attacks: [arg.forn.cn_con]
+
+  - id: arg.acel.consumo_con
+    target: opt.aceleracao.consumo
+    stance: con
+    claim: "A licença de driver da NVIDIA restringe o uso de GPUs de consumo (GeForce) em data center."
+    by: "@comunidade"
+
+  - id: arg.acel.h100_pro
+    target: opt.aceleracao.h100
+    stance: pro
+    claim: "Ecossistema CUDA maduro e melhor suporte do software de serving reduzem o risco operacional."
+    by: "agent:discovery"
+    model: "claude-opus-4-8"
