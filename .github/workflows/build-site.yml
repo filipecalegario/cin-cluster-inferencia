@@ -43,6 +43,8 @@ jobs:
         run: pip install -r _engine/engine/requirements.txt
       - name: Validar padrão de contribuição (lint)
         run: python _engine/engine/lint.py
+      - name: Checar protocolo embutido no AGENTS.md (drift vs idea-waddle)
+        run: python _engine/engine/sync_protocol.py --check AGENTS.md
 
   build:
     needs: lint
