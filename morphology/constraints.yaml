@@ -125,3 +125,27 @@ constraints:
     by: "agent:revisor-2"
     model: "claude-opus-4-8 (perspectiva diversa simulada)"
     note: "Confiabilidade e licenciamento de GPUs de consumo são frágeis em escala média — alerta."
+
+  - a: opt.provisao.apuana
+    b: opt.acesso.chat
+    type: normative
+    degree: weak
+    by: "agent:codex"
+    model: "gpt-5 (Codex)"
+    note: "Overflow via cluster batch tende a conflitar com a latência previsível esperada de uma interface de chat interativa — alerta de SLA/UX."
+
+  - a: opt.provisao.apuana
+    b: opt.politicas.aberto_cota
+    type: normative
+    degree: weak
+    by: "agent:codex"
+    model: "gpt-5 (Codex)"
+    note: "Demanda aberta e imprevisível pode competir com a governança de filas do Apuana — alerta de priorização institucional."
+
+  - a: opt.provisao.cloud_burst
+    b: opt.politicas.aberto_cota
+    type: normative
+    degree: weak
+    by: "agent:codex"
+    model: "gpt-5 (Codex)"
+    note: "Cota aberta combinada com burst em nuvem expõe o projeto a custo variável difícil de governar — alerta orçamentário."

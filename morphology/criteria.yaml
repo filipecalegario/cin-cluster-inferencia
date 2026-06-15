@@ -32,6 +32,24 @@ criteria:
     aggregation: derived
     note: "≈ potência(kW) × horas/mês × tarifa(R$/kWh)."
 
+  - id: prazo_implantacao
+    label: "Prazo até produção"
+    short: "Prazo"
+    kind: qualitative
+    scale: "1-5 (maior = entra em produção mais rápido)"
+    direction: maximize
+    aggregation: min
+    note: "Captura prazo de compra, integração, implantação e governança."
+
+  - id: elasticidade
+    label: "Elasticidade de capacidade"
+    short: "Elasticid."
+    kind: qualitative
+    scale: "1-5 (maior = absorve melhor picos e contingência)"
+    direction: maximize
+    aggregation: min
+    note: "Captura a capacidade de crescer ou absorver pico sem sobredimensionar o cluster local."
+
   - id: soberania
     label: "Soberania (dados/fornecimento)"
     short: "Soberania"

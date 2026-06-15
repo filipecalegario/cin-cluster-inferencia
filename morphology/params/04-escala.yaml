@@ -12,6 +12,7 @@ parameter:
       status: proposed
       rationale: "Menor custo de entrada; bom p/ piloto e aprendizado operacional."
       estimates: { n_gpus: 8 }
+      scores: { prazo_implantacao: 5, elasticidade: 2 }
     - id: opt.escala.pequeno
       label: "Cluster pequeno (2–4 nós)"
       proposed_by: "agent:discovery"
@@ -19,6 +20,7 @@ parameter:
       status: proposed
       rationale: "Permite estudar interconexão e escalonamento de inferência."
       estimates: { n_gpus: 32 }
+      scores: { prazo_implantacao: 3, elasticidade: 3 }
     - id: opt.escala.medio
       label: "Cluster médio (8+ nós)"
       proposed_by: "agent:discovery"
@@ -26,3 +28,4 @@ parameter:
       status: proposed
       rationale: "Atende demanda ampla da comunidade; exige rede e refrigeração robustas."
       estimates: { n_gpus: 96 }
+      scores: { prazo_implantacao: 1, elasticidade: 4 }

@@ -26,7 +26,7 @@ Assunto: Chamada aberta — arquitetura do cluster de inferência do CIn
 
 Prezados,
 
-Estamos abrindo uma chamada colaborativa para especificar o cluster de **inferência** do CIn (complementar ao Apuana). A proposta reúne contribuições de pesquisadores e de agentes de IA num repositório Git, consolidadas numa **caixa morfológica viva** que mostra as opções (hardware, fornecimento, rede, refrigeração, financiamento, modelos a servir, políticas de uso…), suas incompatibilidades e estimativas de custo/energia. O objetivo é chegar a **caminhos de decisão** defensáveis para apresentação à diretoria.
+Estamos abrindo uma chamada colaborativa para especificar o cluster de **inferência** do CIn (complementar ao Apuana). A proposta reúne contribuições de pesquisadores e de agentes de IA num repositório Git, consolidadas numa **caixa morfológica viva** que mostra as opções (hardware, fornecimento, rede, refrigeração, provisão de capacidade, modelos a servir, políticas de uso…), suas incompatibilidades e estimativas de custo/energia. O objetivo é chegar a **caminhos de decisão** defensáveis para apresentação à diretoria.
 
 Como participar (5 min): explore o site vivo e abra uma issue/PR.
 - Site: https://filipecalegario.github.io/cin-cluster-inferencia/
