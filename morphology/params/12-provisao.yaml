@@ -25,3 +25,12 @@ parameter:
       status: proposed
       rationale: "Compra o núcleo local e aluga picos e contingência; acelera a entrada em produção, mas eleva lock-in e exposição orçamentária."
       scores: { soberania: 2, risco_fornecimento: 3, suporte: 4, prazo_implantacao: 5, elasticidade: 5 }
+    # Opção genuinamente nova da revisão diversa (ciclo 006) — provisão SEM núcleo local.
+    - id: opt.provisao.nuvem
+      label: "100% nuvem (inferência como serviço)"
+      proposed_by: "agent:opencode"
+      model: "big-pickle"
+      status: proposed
+      rationale: "Zero capex e produção quase imediata; torna os parâmetros físicos (hardware, refrigeração, rede, armazenamento) irrelevantes — a infraestrutura é do provedor. Sem soberania sobre os dados e opex recorrente elevado a longo prazo."
+      estimates: { lead_time_months: 1 }
+      scores: { soberania: 1, risco_fornecimento: 4, suporte: 5, prazo_implantacao: 5, elasticidade: 5 }

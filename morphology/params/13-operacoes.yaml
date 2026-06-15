@@ -1,0 +1,32 @@
+parameter:
+  id: operacoes
+  label: "Operações / staffing"
+  description: "Quem opera, mantém e faz a gestão diária do cluster de inferência."
+  ibis_issue: null
+  # Parâmetro proposto na revisão diversa (ciclo 006) — endereça o custo operacional,
+  # antes tratado como zero. opex_staff_brl_per_month alimenta a métrica opex_anual.
+  options:
+    - id: opt.operacoes.labs
+      label: "Autogestão pelos laboratórios"
+      proposed_by: "agent:opencode"
+      model: "big-pickle"
+      status: proposed
+      rationale: "Sem custo adicional de staff; sobrecarga sobre investigadores; risco de descontinuidade."
+      estimates: { opex_staff_brl_per_month: 0 }
+      scores: { suporte: 2, risco_fornecimento: 2 }
+    - id: opt.operacoes.dedicado
+      label: "Técnico/analista dedicado (CLT/terceiro)"
+      proposed_by: "agent:opencode"
+      model: "big-pickle"
+      status: proposed
+      rationale: "Custo de ~R$ 10-15k/mês; profissional responsável exclusivo; continuidade e profissionalismo."
+      estimates: { opex_staff_brl_per_month: 15000 }
+      scores: { suporte: 5, risco_fornecimento: 4 }
+    - id: opt.operacoes.terceirizado
+      label: "Serviço gerido (managed service / nuvem)"
+      proposed_by: "agent:opencode"
+      model: "big-pickle"
+      status: proposed
+      rationale: "Operador externo cuida de infraestrutura; CIn consome como serviço; opex maior mas previsível."
+      estimates: { opex_staff_brl_per_month: 25000 }
+      scores: { suporte: 4, risco_fornecimento: 4 }
