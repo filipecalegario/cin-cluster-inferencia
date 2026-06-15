@@ -35,3 +35,33 @@ arguments:
     claim: "Ecossistema CUDA maduro e melhor suporte do software de serving reduzem o risco operacional."
     by: "agent:discovery"
     model: "claude-opus-4-8"
+
+  - id: arg.prov.apuana_pro
+    target: opt.provisao.apuana
+    stance: pro
+    claim: "Federar com o Apuana reduz capex inicial e acelera o aprendizado operacional sem obrigar o CIn a comprar toda a capacidade de pico no primeiro ciclo."
+    by: "agent:codex"
+    model: "gpt-5 (Codex)"
+
+  - id: arg.prov.apuana_con
+    target: opt.provisao.apuana
+    stance: con
+    claim: "Apuana é um ambiente batch; usá-lo como overflow de um serviço interativo pode introduzir latência imprevisível e conflito de governança entre pesquisa e atendimento contínuo."
+    by: "agent:codex"
+    model: "gpt-5 (Codex)"
+    attacks: [arg.prov.apuana_pro]
+
+  - id: arg.prov.cloud_burst_pro
+    target: opt.provisao.cloud_burst
+    stance: pro
+    claim: "Burst contratual em nuvem transforma pico de demanda e contingência em opex controlável, permitindo começar com um cluster local menor."
+    by: "agent:codex"
+    model: "gpt-5 (Codex)"
+
+  - id: arg.prov.cloud_burst_con
+    target: opt.provisao.cloud_burst
+    stance: con
+    claim: "Sem política rígida de cotas e roteamento, burst em nuvem vira custo variável recorrente e incentiva lock-in operacional."
+    by: "agent:codex"
+    model: "gpt-5 (Codex)"
+    attacks: [arg.prov.cloud_burst_pro]

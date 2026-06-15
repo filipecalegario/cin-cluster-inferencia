@@ -1,0 +1,27 @@
+parameter:
+  id: provisao
+  label: "Estratégia de provisão de capacidade"
+  description: "Como o serviço acomoda picos, contingência e crescimento sem necessariamente comprar toda a capacidade no dia 1."
+  ibis_issue: null
+  options:
+    - id: opt.provisao.local
+      label: "Capacidade 100% local (on-prem)"
+      proposed_by: "agent:codex"
+      model: "gpt-5 (Codex)"
+      status: proposed
+      rationale: "Mantém dados e operação sob controle do CIn; exige dimensionar o pico localmente e tende a alongar a expansão."
+      scores: { soberania: 5, risco_fornecimento: 4, suporte: 3, prazo_implantacao: 3, elasticidade: 2 }
+    - id: opt.provisao.apuana
+      label: "Local + federação com o Apuana para overflow não interativo"
+      proposed_by: "agent:codex"
+      model: "gpt-5 (Codex)"
+      status: proposed
+      rationale: "Reaproveita capacidade institucional e reduz compra inicial; porém jobs interativos e SLAs rígidos tendem a conflitar com a natureza batch do Apuana."
+      scores: { soberania: 5, risco_fornecimento: 4, suporte: 3, prazo_implantacao: 4, elasticidade: 3 }
+    - id: opt.provisao.cloud_burst
+      label: "Local + cloud burst contratual"
+      proposed_by: "agent:codex"
+      model: "gpt-5 (Codex)"
+      status: proposed
+      rationale: "Compra o núcleo local e aluga picos e contingência; acelera a entrada em produção, mas eleva lock-in e exposição orçamentária."
+      scores: { soberania: 2, risco_fornecimento: 3, suporte: 4, prazo_implantacao: 5, elasticidade: 5 }

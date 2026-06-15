@@ -8,7 +8,7 @@
 - **Diversidade é o ponto**: queremos visões humanas variadas e modelos de IA diferentes, sem que uma só voz domine.
 
 ## O que estamos decidindo
-Parâmetros já em aberto (veja a caixa viva): hardware de aceleração, origem de fornecimento, software de serving, escala, rede, modelo de acesso, refrigeração/energia, armazenamento, financiamento, modelos de LLM a servir, políticas de uso. Faltam, entre outros: critérios de opex e prazo, pegada de carbono, federação com o Apuana, provisão on-prem × nuvem.
+Parâmetros já em aberto (veja a caixa viva): hardware de aceleração, origem de fornecimento, software de serving, escala, rede, modelo de acesso, refrigeração/energia, armazenamento, modelos de LLM a servir, políticas de uso e estratégia de provisão de capacidade. Faltam, entre outros: pegada de carbono, política explícita de opex anual e refinamento da integração com o Apuana.
 
 ## Como contribuir (resumo)
 1. Dê **fork** e edite `morphology/` (uma opção, uma restrição, um critério) ou abra um ciclo em `cycles/`.

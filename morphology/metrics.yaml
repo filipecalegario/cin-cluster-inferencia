@@ -18,18 +18,42 @@ metrics:
     requires: [n_gpus, capex_per_gpu_brl]
     missing: "selecione hardware + escala"
 
+  - id: it_power_kw
+    label: "Potência de TI"
+    expr: "n_gpus * tdp_w_per_gpu / 1000"
+    format: number1
+    unit: "kW"
+    requires: [n_gpus, tdp_w_per_gpu]
+    missing: "selecione hardware + escala"
+
   - id: power_kw
-    label: "Potência"
-    expr: "n_gpus * tdp_w_per_gpu / 1000 * pue"
+    label: "Potência total (TI + PUE)"
+    expr: "it_power_kw * pue"
     format: number1
     unit: "kW"
     requires: [n_gpus, tdp_w_per_gpu]
     missing: "selecione hardware + escala"
 
   - id: energy
-    label: "Energia"
+    label: "Energia (teto térmico)"
     expr: "power_kw * hours_per_month * tariff_brl_per_kwh"
     format: brl
     suffix: "/mês"
     requires: [n_gpus, tdp_w_per_gpu]
     missing: "depende da potência"
+
+  - id: energy_typical
+    label: "Energia (carga típica)"
+    expr: "energy * load_factor_typical"
+    format: brl
+    suffix: "/mês"
+    requires: [n_gpus, tdp_w_per_gpu]
+    missing: "depende da potência"
+
+  - id: energy_typical_year
+    label: "Energia típica anual"
+    expr: "energy_typical * 12"
+    format: brl
+    suffix: "/ano"
+    requires: [n_gpus, tdp_w_per_gpu]
+    missing: "depende da energia mensal típica"
