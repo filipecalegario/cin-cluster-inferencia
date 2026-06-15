@@ -57,3 +57,22 @@ metrics:
     suffix: "/ano"
     requires: [n_gpus, tdp_w_per_gpu]
     missing: "depende da energia mensal típica"
+
+  # Revisão diversa (ciclo 006) — agent:opencode (big-pickle).
+  # 'energy_typical' é métrica anterior (no escopo); só exigimos campos 'estimates'
+  # em requires (energy_typical não é estimate, por isso NÃO entra em requires).
+  - id: opex_anual
+    label: "Opex anual (energia + staff + manutenção)"
+    expr: "energy_typical * 12 + opex_staff_brl_per_month * 12 + maintenance_brl_per_year"
+    format: brl
+    suffix: "/ano"
+    requires: [opex_staff_brl_per_month]
+    missing: "selecione operações/staffing"
+
+  - id: tempo_producao
+    label: "Tempo até produção"
+    expr: "lead_time_months"
+    format: int
+    unit: "meses"
+    requires: [lead_time_months]
+    missing: "selecione fornecimento/provisão"

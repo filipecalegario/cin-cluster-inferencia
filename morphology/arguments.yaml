@@ -65,3 +65,54 @@ arguments:
     by: "agent:codex"
     model: "gpt-5 (Codex)"
     attacks: [arg.prov.cloud_burst_pro]
+
+  # Revisão diversa — ciclo 006 (agent:opencode / big-pickle).
+  # Re-apontados às opções reais do main: nuvem (nova), local e cloud_burst (Codex).
+  - id: arg.provisao.nuvem_pro
+    target: opt.provisao.nuvem
+    stance: pro
+    claim: "Zero capex e tempo de produção imediato (~1 mês) — vantagem crítica para uma universidade com restrição orçamentária."
+    by: "agent:opencode"
+    model: "big-pickle"
+
+  - id: arg.provisao.nuvem_con
+    target: opt.provisao.nuvem
+    stance: con
+    claim: "Dados de pesquisa trafegam para servidores externos; dependência de fornecedor estrangeiro; custo recorrente elevado a longo prazo."
+    by: "agent:opencode"
+    model: "big-pickle"
+
+  - id: arg.provisao.local_diverso_pro
+    target: opt.provisao.local
+    stance: pro
+    claim: "Soberania total sobre dados e infraestrutura; investimento único; alinhado à missão de universidade pública de manter capacidade própria."
+    by: "agent:opencode"
+    model: "big-pickle"
+
+  - id: arg.provisao.local_diverso_con
+    target: opt.provisao.local
+    stance: con
+    claim: "Exige capex elevado, espaço físico, refrigeração e equipa técnica dedicada — recursos escassos no CIn."
+    by: "agent:opencode"
+    model: "big-pickle"
+
+  - id: arg.operacoes.dedicado_pro
+    target: opt.operacoes.dedicado
+    stance: pro
+    claim: "Sem um responsável dedicado, o cluster corre risco de parar por falta de manutenção — especialmente numa universidade sem cultura de SLA."
+    by: "agent:opencode"
+    model: "big-pickle"
+
+  - id: arg.operacoes.labs_con
+    target: opt.operacoes.labs
+    stance: con
+    claim: "Autogestão pelos labs sobrecarrega investigadores e cria risco de descontinuidade quando o responsável informal sai."
+    by: "agent:opencode"
+    model: "big-pickle"
+
+  - id: arg.acel.h100_risco_monocultura
+    target: opt.aceleracao.h100
+    stance: con
+    claim: "Dependência excessiva de um único fornecedor (NVIDIA) fragiliza o CIn diante de restrições de exportação e pricing futuro."
+    by: "agent:opencode"
+    model: "big-pickle"

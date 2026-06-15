@@ -5,6 +5,7 @@ assumptions:
   hours_per_month: 720       # 24h × 30 dias (operação contínua)
   pue: 1.5                   # Power Usage Effectiveness (overhead de refrigeração/infra)
   load_factor_typical: 0.65  # fração média do TDP efetivamente usada em operação típica de serving
+  maintenance_brl_per_year: 50000  # manutenção preventiva + reposição (~5% do capex médio) — agent:opencode (big-pickle)
   note: >
     Valores de partida para o mecanismo funcionar de ponta a ponta.
     Devem ser substituídos por números pesquisados/medidos.

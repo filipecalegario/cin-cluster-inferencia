@@ -11,6 +11,7 @@ parameter:
       model: "claude-opus-4-8"
       status: proposed
       rationale: "Ecossistema e suporte consolidados; sujeito a câmbio e prazos de importação."
+      estimates: { lead_time_months: 4 }
       scores: { soberania: 2, risco_fornecimento: 3, suporte: 5 }
     - id: opt.fornecimento.cn
       label: "Mercado chinês (Huawei/Biren)"
@@ -18,6 +19,7 @@ parameter:
       model: "claude-opus-4-8"
       status: proposed
       rationale: "Possível custo menor; incerteza de suporte/garantia local e de software."
+      estimates: { lead_time_months: 6 }
       scores: { soberania: 3, risco_fornecimento: 2, suporte: 2 }
     - id: opt.fornecimento.parceria
       label: "Parceria / doação de fabricante ou nuvem"
@@ -25,4 +27,5 @@ parameter:
       model: "claude-opus-4-8"
       status: proposed
       rationale: "Reduz custo de capital; depende de negociação e pode amarrar a um fornecedor."
+      estimates: { lead_time_months: 8 }
       scores: { soberania: 3, risco_fornecimento: 3, suporte: 3 }

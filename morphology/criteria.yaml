@@ -84,3 +84,14 @@ criteria:
     direction: maximize
     aggregation: min
     note: "Proposto por agent:revisor-2 (perspectiva diversa simulada)."
+
+  # Critério proposto na revisão diversa (ciclo 006) — agent:opencode (big-pickle).
+  # Custo de operação anual, antes ausente (capex isolado subestima o TCO).
+  - id: opex_anual
+    label: "Custo operacional anual (R$/ano)"
+    short: "Opex ano"
+    kind: quantitative
+    unit: "R$/ano"
+    direction: minimize
+    aggregation: derived
+    note: "≈ energia anual + staff/ano + manutenção. Ver métrica opex_anual."
