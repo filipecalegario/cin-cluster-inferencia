@@ -1,6 +1,9 @@
 # Site gerado pelo motor (publicado pela CI; não versionar)
 /site/
 
+# Build local / rascunho (venv, screenshots de verificação)
+/.tmp/
+
 # Plataforma clonada ao lado para rodar localmente
 /idea-waddle/
 /_engine/

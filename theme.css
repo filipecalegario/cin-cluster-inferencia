@@ -1,0 +1,86 @@
+/* ==========================================================================
+   Tema do caso — Identidade visual CIn-UFPE (canon)
+   --------------------------------------------------------------------------
+   Linkado pelo motor idea-waddle DEPOIS do <style> embutido, então as
+   variáveis :root aqui sobrescrevem as do motor (mesma especificidade,
+   declaração posterior vence).
+
+   Fonte do design: DESIGN-cinufpe-canon.md
+     - Paleta de 4 cores: Vermelho #DB1E2F, Vermelho escuro #AF0421,
+       Preto #231F20, Cinza claro #E0E1E0, sobre canvas branco.
+     - Tipografia institucional: Proxima Nova (sans). Sem licença web livre,
+       usamos Montserrat (geométrica, equivalente próximo). Adelle (slab,
+       registro editorial não-institucional) → Zilla Slab, reservada ao
+       subtítulo editorial.
+     - Sistema plano: sem gradientes, sem texturas, sem sombras pesadas.
+       Profundidade vem de troca de cor de fundo, não de elevação.
+
+   Desvio consciente do motor: o idea-waddle usa cores semânticas de estado
+   (verde = aceito/ok, azul = links, ocre = alerta) que NÃO existem na paleta
+   de 4 cores. Para respeitar o canon, mapeamos: links e alertas → tons de
+   vermelho; "ok" → preto. A distinção alerta×restrição-dura é mantida por
+   dois níveis de vermelho (Vermelho vs. Vermelho escuro).
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Zilla+Slab:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Superfícies — branco institucional, contenção por linha cinza de 1px */
+  --paper:   #FFFFFF;   /* canvas / superfície padrão */
+  --paper-2: #E0E1E0;   /* cinza claro — fundo de code, blocos quietos */
+  --panel:   #FFFFFF;   /* cards e painéis (outline cinza, sem sombra) */
+
+  /* Tinta — preto quente quase-neutro do canon */
+  --ink:   #231F20;     /* texto / bordas fortes */
+  --ink-2: #57534F;     /* texto secundário (≈ 7:1 sobre branco) */
+
+  /* Linhas */
+  --rule:   #E0E1E0;            /* divisória cinza claro (canon outline) */
+  --rule-2: rgba(35,31,32,.55); /* divisória forte derivada do Preto */
+
+  /* Acentos — somente vermelhos (canon) */
+  --signal: #DB1E2F;    /* Vermelho — acento primário, topbar, seleção */
+  --blue:   #AF0421;    /* links → Vermelho escuro (legível sobre branco) */
+  --ok:     #231F20;    /* "ok/aceito" → Preto (canon não tem verde) */
+  --ochre:  #AF0421;    /* alerta → Vermelho escuro (distinto do Vermelho) */
+  --hatch:  rgba(219,30,47,.12);
+
+  /* Tipografia — Montserrat institucional; mono técnico preservado */
+  --disp: 'Montserrat', system-ui, -apple-system, Segoe UI, sans-serif;
+  --body: 'Montserrat', system-ui, -apple-system, Segoe UI, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'Courier New', monospace;
+}
+
+/* Sistema plano: remove a grade e a textura de ruído do canvas. */
+body {
+  background-image: none !important;
+}
+body::before { display: none !important; }
+
+/* Display institucional pede peso, não tamanho — Montserrat pesada. */
+.title { font-weight: 800; letter-spacing: -.02em; }
+.row-label .rl-name,
+.est .v,
+.metric .mv { font-weight: 700; }
+
+/* Único registro editorial (≈ Adelle): o subtítulo do masthead. */
+.standfirst {
+  font-family: 'Zilla Slab', Georgia, 'Times New Roman', serif;
+}
+
+/* Achatar as sombras-bloco brutalist em favor do plano canônico.
+   A profundidade fica por conta da borda preta + troca de fundo. */
+.gma { box-shadow: none; }
+.instrument { box-shadow: none; }
+.instrument::before, .instrument::after { display: none; }
+
+/* Interação por troca de fundo (canon), sem sombra dura deslocada. */
+.opt:hover { transform: none; box-shadow: 0 2px 4px rgba(35,31,32,.06); }
+.opt.selected { box-shadow: none; }
+.opt.selected .op { color: rgba(255,255,255,.70); }
+
+/* Foco visível em Vermelho (canon: outline-focus = brand red). */
+a:focus-visible,
+.opt:focus-visible,
+.btn:focus-visible,
+button:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
